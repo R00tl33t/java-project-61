@@ -7,3 +7,5 @@
 [Video of testing game Calculator](https://asciinema.org/a/1qcyFkocZ8eOn3kCRXXATWXJv)
 
 [Video of testing game GCD](https://asciinema.org/a/17xPuY1LyaEBPBHeNh6pFojiT)
+
+[Video of testing game Progression](https://asciinema.org/a/VAJFuz9yT7Z4tnIxrn1CxPJaE)

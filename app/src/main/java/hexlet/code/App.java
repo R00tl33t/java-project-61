@@ -11,6 +11,7 @@ public class App {
         System.out.println("2 - Even");
         System.out.println("3 - Calculator");
         System.out.println("4 - GCD");
+        System.out.println("5 - Progression");
         System.out.println("0 - Exit");
         String choosenGame = mainScanner.next();
         System.out.println("Your choice " + choosenGame);
@@ -30,6 +31,10 @@ public class App {
             // Запускается игра "Найди наибольший общий делитель"
             Cli.setName(mainScanner);
             hexlet.code.games.GCD.playGCD(mainScanner);
+        } else if (choosenGame.equals("5")) {
+            // Запускается игра "Арифметическая прогрессия"
+            Cli.setName(mainScanner);
+            hexlet.code.games.Progression.playProgression(mainScanner);
         } else {
             return;
         }
