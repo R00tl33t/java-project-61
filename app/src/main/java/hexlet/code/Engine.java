@@ -34,4 +34,17 @@ public class Engine {
         int maxNumber = 5;
         return randomIncrement.nextInt(maxNumber - minNumber + 1) + minNumber;
     }
+
+    // Механизм проверки простого числа
+    public static boolean isPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

@@ -9,3 +9,5 @@
 [Video of testing game GCD](https://asciinema.org/a/17xPuY1LyaEBPBHeNh6pFojiT)
 
 [Video of testing game Progression](https://asciinema.org/a/VAJFuz9yT7Z4tnIxrn1CxPJaE)
+
+[Video of testing game Prime](https://asciinema.org/a/P7l9NKmvvYUM7SdCU0FlLHEPO)

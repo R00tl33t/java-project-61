@@ -12,6 +12,7 @@ public class App {
         System.out.println("3 - Calculator");
         System.out.println("4 - GCD");
         System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         String choosenGame = mainScanner.next();
         System.out.println("Your choice " + choosenGame);
@@ -35,6 +36,10 @@ public class App {
             // Запускается игра "Арифметическая прогрессия"
             Cli.setName(mainScanner);
             hexlet.code.games.Progression.playProgression(mainScanner);
+        } else if (choosenGame.equals("6")) {
+            // Запускается игра "Простое числое"
+            Cli.setName(mainScanner);
+            hexlet.code.games.Prime.playPrime(mainScanner);
         } else {
             return;
         }

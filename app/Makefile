@@ -1,5 +1,5 @@
-.PHONY: run-dist
+.PHONY: run
 
 # Команда для запуска исполняемого файла
-run-dist:
+run:
 	./build/install/app/bin/app
