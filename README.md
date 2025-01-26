@@ -3,4 +3,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/1fdd0f93d471b39be8a9/maintainability)](https://codeclimate.com/github/R00tl33t/java-project-61/maintainability)
 
 [Video of testing game Even]( https://asciinema.org/a/nyoWAtGLuDa7EI0b0IhW5GHrs)
+
 [Video of testing game Calculator](https://asciinema.org/a/1qcyFkocZ8eOn3kCRXXATWXJv)
+
+[Video of testing game GCD](https://asciinema.org/a/17xPuY1LyaEBPBHeNh6pFojiT)

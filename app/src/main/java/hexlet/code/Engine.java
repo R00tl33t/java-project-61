@@ -9,9 +9,19 @@ public class Engine {
         int maxNumber = 100;
         return randomNumber.nextInt(maxNumber - minNumber + 1) + minNumber;
     }
+    // Механизм генерации случайного оператора
     public static String getRandomOperator() {
         String[] operators = {"+", "-", "*"};
         Random randomOperator = new Random();
         return operators[randomOperator.nextInt(operators.length)];
+    }
+    // Механизм генерации наибольшего общего делителя
+    public static int findGCD(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
     }
 }
