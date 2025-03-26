@@ -6,42 +6,48 @@ public class App {
         // Устанавливаем общий для программы сканер
         Scanner mainScanner = new Scanner(System.in);
         // Устанавливаем текст для выбора игры
-        System.out.println("Please, enter the game number and press Enter");
-        System.out.println("1 - Greet");
-        System.out.println("2 - Even");
-        System.out.println("3 - Calculator");
-        System.out.println("4 - GCD");
-        System.out.println("5 - Progression");
-        System.out.println("6 - Prime");
-        System.out.println("0 - Exit");
+        System.out.println("""
+            Please, enter the game number and press Enter
+            1 - Greet
+            2 - Even
+            3 - Calculator
+            4 - GCD
+            5 - Progression
+            6 - Prime
+            0 - Exit""");
         String choosenGame = mainScanner.next();
         System.out.println("Your choice " + choosenGame);
         // Выбираем игру
-        if (choosenGame.equals("1")) {
+
+        switch (choosenGame) {
             // Запускается функция указания имени игрока
-            Cli.setName(mainScanner);
-        } else if (choosenGame.equals("2")) {
+            case "1" -> Cli.setName(mainScanner);
             // Запускается игра "Чёт - нечет"
-            Cli.setName(mainScanner);
-            hexlet.code.games.EvenGame.playEven(mainScanner);
-        } else if (choosenGame.equals("3")) {
+            case "2" -> {
+                Cli.setName(mainScanner);
+                hexlet.code.games.EvenGame.playEven(mainScanner);
+            }
             // Запускается игра "Калькулятор"
-            Cli.setName(mainScanner);
-            hexlet.code.games.Calculator.playCalculator(mainScanner);
-        } else if (choosenGame.equals("4")) {
+            case "3" -> {
+                Cli.setName(mainScanner);
+                hexlet.code.games.Calculator.playCalculator(mainScanner);
+            }
             // Запускается игра "Найди наибольший общий делитель"
-            Cli.setName(mainScanner);
-            hexlet.code.games.GCD.playGCD(mainScanner);
-        } else if (choosenGame.equals("5")) {
+            case "4" -> {
+                Cli.setName(mainScanner);
+                hexlet.code.games.GCD.playGCD(mainScanner);
+            }
             // Запускается игра "Арифметическая прогрессия"
-            Cli.setName(mainScanner);
-            hexlet.code.games.Progression.playProgression(mainScanner);
-        } else if (choosenGame.equals("6")) {
-            // Запускается игра "Простое числое"
-            Cli.setName(mainScanner);
-            hexlet.code.games.Prime.playPrime(mainScanner);
-        } else {
-            return;
+            case "5" -> {
+                Cli.setName(mainScanner);
+                hexlet.code.games.Progression.playProgression(mainScanner);
+            }
+            // Запускается игра "Простое число"
+            case "6" -> {
+                Cli.setName(mainScanner);
+                hexlet.code.games.Prime.playPrime(mainScanner);
+            }
+            default -> throw new IllegalArgumentException("Можно выбрать только число от 1 до 6!");
         }
         // Выключаем общий для программы сканер
         mainScanner.close();
