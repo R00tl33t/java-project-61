@@ -1,42 +1,43 @@
 package hexlet.code.games;
+
 import hexlet.code.Engine;
+
+import java.util.Random;
 import java.util.Scanner;
+import hexlet.code.Cli;
 
 public class EvenGame {
-    // Вводим механизм игры
-    public static void playEven(Scanner mainScanner) {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'");
-        // Вводим условие победы
+    private static final String GAME_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'";
+
+    public static void playEven(Scanner scanner) {
+        System.out.println(GAME_RULE);
         boolean winGame = true;
-        // Вводим 3 раунда игры
-        for (int stageGame = 1; stageGame <= 3; stageGame++) {
-            int number = Engine.getRandomNumber();
+        for (int currentRound = 1; currentRound <= Engine.ROUNDS_COUNT; currentRound++) {
+            int number = getRandomNumber();
+            String correctAnswer = number % 2 == 0 ? "yes" : "no";
+
             System.out.println("Question: " + number);
             System.out.print("Your answer: ");
-            String answer = mainScanner.next();
-            if (number % 2 == 0 && answer.equalsIgnoreCase("yes")) {
+            String answer = scanner.next().trim().toLowerCase();
+
+            if (correctAnswer.equals(answer)) {
                 System.out.println("Correct!");
-            } else if (number % 2 != 0 && answer.equalsIgnoreCase("no")) {
-                System.out.println("Correct!");
-            } else if (number % 2 == 0 && answer.equalsIgnoreCase("no")) {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was 'yes'.");
-                System.out.println("Let's try again " + hexlet.code.Cli.getName()  + "!");
-                winGame = false;
-                break;
-            } else if (number % 2 != 0 && answer.equalsIgnoreCase("yes")) {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was 'no'.");
-                System.out.println("Let's try again " + hexlet.code.Cli.getName()  + "!");
-                winGame = false;
-                break;
             } else {
                 System.out.println("'" + answer + "' is wrong answer ;(.");
-                System.out.println("Let's try again " + hexlet.code.Cli.getName() + "!");
+                System.out.println("Let's try again " + Cli.getName() + "!");
                 winGame = false;
                 break;
             }
         }
         if (winGame) {
-            System.out.println("Congratulations, " + hexlet.code.Cli.getName() + "!");
+            System.out.println(Engine.CONGRATULATIONS);
         }
+    }
+    // Механизм генерации случайного числа
+    public static int getRandomNumber() {
+        Random randomNumber = new Random();
+        int minNumber = 1;
+        int maxNumber = 100;
+        return randomNumber.nextInt(maxNumber - minNumber + 1) + minNumber;
     }
 }

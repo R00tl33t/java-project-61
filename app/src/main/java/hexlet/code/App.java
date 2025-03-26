@@ -1,10 +1,15 @@
 package hexlet.code;
 import java.util.Scanner;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.Calculator;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 public class App {
     public static void main(String[] args) {
         // Устанавливаем общий для программы сканер
-        Scanner mainScanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         // Устанавливаем текст для выбора игры
         System.out.println("""
             Please, enter the game number and press Enter
@@ -15,41 +20,41 @@ public class App {
             5 - Progression
             6 - Prime
             0 - Exit""");
-        String choosenGame = mainScanner.next();
+        String choosenGame = scanner.next();
         System.out.println("Your choice " + choosenGame);
         // Выбираем игру
 
         switch (choosenGame) {
             // Запускается функция указания имени игрока
-            case "1" -> Cli.setName(mainScanner);
+            case "1" -> Cli.setName(scanner);
             // Запускается игра "Чёт - нечет"
             case "2" -> {
-                Cli.setName(mainScanner);
-                hexlet.code.games.EvenGame.playEven(mainScanner);
+                Cli.setName(scanner);
+                EvenGame.playEven(scanner);
             }
             // Запускается игра "Калькулятор"
             case "3" -> {
-                Cli.setName(mainScanner);
-                hexlet.code.games.Calculator.playCalculator(mainScanner);
+                Cli.setName(scanner);
+                Calculator.playCalculator(scanner);
             }
             // Запускается игра "Найди наибольший общий делитель"
             case "4" -> {
-                Cli.setName(mainScanner);
-                hexlet.code.games.GCD.playGCD(mainScanner);
+                Cli.setName(scanner);
+                GCD.playGCD(scanner);
             }
             // Запускается игра "Арифметическая прогрессия"
             case "5" -> {
-                Cli.setName(mainScanner);
-                hexlet.code.games.Progression.playProgression(mainScanner);
+                Cli.setName(scanner);
+                Progression.playProgression(scanner);
             }
             // Запускается игра "Простое число"
             case "6" -> {
-                Cli.setName(mainScanner);
-                hexlet.code.games.Prime.playPrime(mainScanner);
+                Cli.setName(scanner);
+                Prime.playPrime(scanner);
             }
             default -> throw new IllegalArgumentException("Можно выбрать только число от 1 до 6!");
         }
         // Выключаем общий для программы сканер
-        mainScanner.close();
+        scanner.close();
     }
 }

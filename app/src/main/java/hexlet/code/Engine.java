@@ -1,50 +1,8 @@
 package hexlet.code;
-import java.util.Random;
+
+import hexlet.code.Cli;
 
 public class Engine {
-    // Механизм генерации случайного числа
-    public static int getRandomNumber() {
-        Random randomNumber = new Random();
-        int minNumber = 1;
-        int maxNumber = 100;
-        return randomNumber.nextInt(maxNumber - minNumber + 1) + minNumber;
-    }
-
-    // Механизм генерации случайного оператора
-    public static String getRandomOperator() {
-        String[] operators = {"+", "-", "*"};
-        Random randomOperator = new Random();
-        return operators[randomOperator.nextInt(operators.length)];
-    }
-
-    // Механизм генерации наибольшего общего делителя
-    public static int findGCD(int a, int b) {
-        while (b != 0) {
-            int temp = b;
-            b = a % b;
-            a = temp;
-        }
-        return a;
-    }
-
-    // Механизм генерации случайного инкремента
-    public static int getRandomIncrement() {
-        Random randomIncrement = new Random();
-        int minNumber = 1;
-        int maxNumber = 5;
-        return randomIncrement.nextInt(maxNumber - minNumber + 1) + minNumber;
-    }
-
-    // Механизм проверки простого числа
-    public static boolean isPrime(int number) {
-        if (number <= 1) {
-            return false;
-        }
-        for (int i = 2; i <= Math.sqrt(number); i++) {
-            if (number % i == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
+    public static final int ROUNDS_COUNT = 3;
+    public static final String CONGRATULATIONS = "Congratulations, " + Cli.getName() + "!";
 }
