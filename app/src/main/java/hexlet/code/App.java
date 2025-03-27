@@ -25,6 +25,10 @@ public class App {
         // Выбираем игру
 
         switch (choosenGame) {
+            // Выход из игры
+            case "0" -> {
+                return;
+            }
             // Запускается функция указания имени игрока
             case "1" -> Cli.setName(scanner);
             // Запускается игра "Чёт - нечет"
@@ -52,7 +56,7 @@ public class App {
                 Cli.setName(scanner);
                 Prime.playPrime(scanner);
             }
-            default -> throw new IllegalArgumentException("Можно выбрать только число от 1 до 6!");
+            default -> throw new IllegalArgumentException("Можно выбрать только число от 0 до 6!");
         }
         // Выключаем общий для программы сканер
         scanner.close();
