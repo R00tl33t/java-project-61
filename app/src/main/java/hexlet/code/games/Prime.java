@@ -1,48 +1,51 @@
 package hexlet.code.games;
-import hexlet.code.Engine;
 
+import hexlet.code.Engine;
 import java.util.Random;
 import java.util.Scanner;
-import hexlet.code.Cli;
 
 public class Prime {
+    private static final String GAME_RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final int MIN_NUMBER = 1;
+    private static final int MAX_NUMBER = 100;  // Увеличил диапазон для большего разнообразия
+
     public static void playPrime(Scanner scanner) {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        boolean winGame = true;
-        for (int currentRound = 1; currentRound <= Engine.ROUNDS_COUNT; currentRound++) {
+        // Подготавливаем массивы для вопросов и ответов
+        String[] questions = new String[Engine.ROUNDS_COUNT];
+        String[] answers = new String[Engine.ROUNDS_COUNT];
+
+        // Генерируем данные для каждого раунда
+        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
             int number = getRandomNumber();
-            System.out.println("Question: " + number);
-            System.out.print("Your answer: ");
-            String answer = scanner.next();
-            if (isPrime(number) && answer.equalsIgnoreCase("yes")) {
-                System.out.println("Correct!");
-            } else if (!isPrime(number) && answer.equalsIgnoreCase("no")) {
-                System.out.println("Correct!");
-            } else {
-                System.out.println("'" + answer + "' is wrong answer ;(.");
-                System.out.println("Let's try again, " + Cli.getName() + "!");
-                return;
-            }
+            questions[i] = String.valueOf(number);
+            answers[i] = isPrime(number) ? "yes" : "no";
         }
-        System.out.println(Engine.CONGRATULATIONS);
+
+        // Передаем управление в движок
+        Engine.playGame(GAME_RULE, questions, answers, scanner);
     }
-    // Механизм проверки простого числа
-    public static boolean isPrime(int number) {
+
+    // Проверка, является ли число простым
+    private static boolean isPrime(int number) {
         if (number <= 1) {
             return false;
         }
-        for (int i = 2; i <= Math.sqrt(number); i++) {
+        if (number == 2) {
+            return true;
+        }
+        if (number % 2 == 0) {
+            return false;
+        }
+        for (int i = 3; i <= Math.sqrt(number); i += 2) {
             if (number % i == 0) {
                 return false;
             }
         }
         return true;
     }
-    // Механизм генерации случайного числа
-    public static int getRandomNumber() {
-        Random randomNumber = new Random();
-        int minNumber = 1;
-        int maxNumber = 100;
-        return randomNumber.nextInt(maxNumber - minNumber + 1) + minNumber;
+
+    // Генерация случайного числа
+    private static int getRandomNumber() {
+        return new Random().nextInt(MAX_NUMBER - MIN_NUMBER + 1) + MIN_NUMBER;
     }
 }
