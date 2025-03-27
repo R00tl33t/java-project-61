@@ -21,13 +21,10 @@ public class Prime {
             } else {
                 System.out.println("'" + answer + "' is wrong answer ;(.");
                 System.out.println("Let's try again, " + Cli.getName() + "!");
-                winGame = false;
-                break;
+                return;
             }
         }
-        if (winGame) {
-            System.out.println(Engine.CONGRATULATIONS);
-        }
+        System.out.println(Engine.CONGRATULATIONS);
     }
     // Механизм проверки простого числа
     public static boolean isPrime(int number) {

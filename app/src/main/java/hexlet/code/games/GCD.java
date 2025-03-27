@@ -9,7 +9,6 @@ import hexlet.code.Cli;
 public class GCD {
     public static void playGCD(Scanner scanner) {
         System.out.println("Find the greatest common divisor of given numbers.");
-        boolean winGame = true;
         for (int currentRound = 1; currentRound <= Engine.ROUNDS_COUNT; currentRound++) {
             int number1 = getRandomNumber();
             int number2 = getRandomNumber();
@@ -22,13 +21,10 @@ public class GCD {
             } else {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + result + "'.");
                 System.out.println("Let's try again, " + Cli.getName() + "!");
-                winGame = false;
-                break;
+                return;
             }
         }
-        if (winGame) {
-            System.out.println(Engine.CONGRATULATIONS);
-        }
+        System.out.println(Engine.CONGRATULATIONS);
     }
     // Генерация случайного числа
     public static int getRandomNumber() {

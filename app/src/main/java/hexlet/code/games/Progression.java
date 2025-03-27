@@ -8,7 +8,6 @@ import hexlet.code.Cli;
 public class Progression {
     public static void playProgression(Scanner scanner) {
         System.out.println("What number is missing in the progression?");
-        boolean winGame = true;
         // Первая партия игры
         int n1 = getRandomNumber();
         int increment = getRandomIncrement();
@@ -24,7 +23,6 @@ public class Progression {
         } else {
             System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + n3 + "'.");
             System.out.println("Let's try again, " + Cli.getName() + "!");
-            winGame = false;
             return;
         }
         // Вторая партия игры
@@ -42,7 +40,6 @@ public class Progression {
         } else {
             System.out.println("'" + answer2 + "' is wrong answer ;(. Correct answer was '" + n52 + "'.");
             System.out.println("Let's try again, " + Cli.getName() + "!");
-            winGame = false;
             return;
         }
         // Третья партия игры
@@ -60,12 +57,9 @@ public class Progression {
         } else {
             System.out.println("'" + answer3 + "' is wrong answer ;(. Correct answer was '" + n23 + "'.");
             System.out.println("Let's try again, " + Cli.getName() + "!");
-            winGame = false;
             return;
         }
-        if (winGame) {
-            System.out.println(Engine.CONGRATULATIONS);
-        }
+        System.out.println(Engine.CONGRATULATIONS);
     }
     // Механизм генерации случайного числа
     public static int getRandomNumber() {

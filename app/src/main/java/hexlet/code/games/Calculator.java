@@ -10,7 +10,6 @@ public class Calculator {
 
     public static void playCalculator(Scanner scanner) {
         System.out.println(GAME_RULE);
-        boolean winGame = true;
         for (int currentRound = 1; currentRound <= Engine.ROUNDS_COUNT; currentRound++) {
             int number1 = getRandomNumber();
             int number2 = getRandomNumber();
@@ -38,13 +37,10 @@ public class Calculator {
             } else {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + result + "'.");
                 System.out.println("Let's try again, " + Cli.getName() + "!");
-                winGame = false;
-                break;
+                return;
             }
         }
-        if (winGame) {
             System.out.println(Engine.CONGRATULATIONS);
-        }
     }
     // Механизм генерации случайного оператора
     public static String getRandomOperator() {
