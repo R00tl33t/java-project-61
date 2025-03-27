@@ -27,17 +27,23 @@ public class Prime {
 
     // Проверка, является ли число простым
     private static boolean isPrime(int number) {
+        // Константы для улучшения читаемости
+        final int smallestPrime = 2;
+        final int firstOddPrime = 3;
+        final int stepForOdds = 2;
+
         if (number <= 1) {
             return false;
         }
-        if (number == 2) {
+        if (number == smallestPrime) {
             return true;
         }
-        if (number % 2 == 0) {
+        if (number % smallestPrime == 0) {
             return false;
         }
+
         int sqrtNumber = (int) Math.sqrt(number);
-        for (int i = 3; i <= sqrtNumber; i += 2) {
+        for (int i = firstOddPrime; i <= sqrtNumber; i += stepForOdds) {
             if (number % i == 0) {
                 return false;
             }
