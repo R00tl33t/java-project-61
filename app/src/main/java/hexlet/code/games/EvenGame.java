@@ -7,7 +7,7 @@ import java.util.Scanner;
 import hexlet.code.Cli;
 
 public class EvenGame {
-    private static final String GAME_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'";
+    private static final String GAME_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     public static void playEven(Scanner scanner) {
         System.out.println(GAME_RULE);
