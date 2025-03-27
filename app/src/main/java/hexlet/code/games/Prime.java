@@ -36,7 +36,8 @@ public class Prime {
         if (number % 2 == 0) {
             return false;
         }
-        for (int i = 3; i <= Math.sqrt(number); i += 2) {
+        int sqrtNumber = (int) Math.sqrt(number);
+        for (int i = 3; i <= sqrtNumber; i += 2) {
             if (number % i == 0) {
                 return false;
             }
