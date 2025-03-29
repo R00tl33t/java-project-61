@@ -10,7 +10,7 @@ public class Calculator {
     private static final int MAX_NUMBER = 10;
     private static final String[] OPERATORS = {"+", "-", "*"};
 
-    public static void playCalculator(Scanner scanner) {
+    public static void play(Scanner scanner) {
         // Подготавливаем массивы для вопросов и ответов
         String[] questions = new String[Engine.ROUNDS_COUNT];
         String[] answers = new String[Engine.ROUNDS_COUNT];

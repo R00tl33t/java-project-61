@@ -8,9 +8,7 @@ import hexlet.code.games.Prime;
 
 public class App {
     public static void main(String[] args) {
-        // Устанавливаем общий для программы сканер
         Scanner scanner = new Scanner(System.in);
-        // Устанавливаем текст для выбора игры
         System.out.println("""
             Please, enter the game number and press Enter
             1 - Greet
@@ -23,39 +21,22 @@ public class App {
         String choosenGame = scanner.next();
         System.out.println("Your choice " + choosenGame);
         // Выбираем игру
-
         switch (choosenGame) {
             // Выход из игры
-            case "0" -> {
-                return;
-            }
+            case "0" -> System.exit(0);
             // Запускается функция указания имени игрока
             case "1" -> Cli.setName(scanner);
             // Запускается игра "Чёт - нечет"
-            case "2" -> {
-                Cli.setName(scanner);
-                EvenGame.playEven(scanner);
-            }
+            case "2" -> EvenGame.play(scanner);
             // Запускается игра "Калькулятор"
-            case "3" -> {
-                Cli.setName(scanner);
-                Calculator.playCalculator(scanner);
-            }
+            case "3" -> Calculator.play(scanner);
             // Запускается игра "Найди наибольший общий делитель"
-            case "4" -> {
-                Cli.setName(scanner);
-                GCD.playGCD(scanner);
-            }
+            case "4" -> GCD.play(scanner);
             // Запускается игра "Арифметическая прогрессия"
-            case "5" -> {
-                Cli.setName(scanner);
-                Progression.playProgression(scanner);
-            }
+            case "5" -> Progression.play(scanner);
             // Запускается игра "Простое число"
-            case "6" -> {
-                Cli.setName(scanner);
-                Prime.playPrime(scanner);
-            }
+            case "6" -> Prime.play(scanner);
+            // Сообщение об ошибке, если выбирается другое число
             default -> throw new IllegalArgumentException("Можно выбрать только число от 0 до 6!");
         }
         // Выключаем общий для программы сканер

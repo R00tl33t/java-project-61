@@ -9,7 +9,7 @@ public class EvenGame {
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 10;
 
-    public static void playEven(Scanner scanner) {
+    public static void play(Scanner scanner) {
         String[] questions = new String[Engine.ROUNDS_COUNT];
         String[] answers = new String[Engine.ROUNDS_COUNT];
 

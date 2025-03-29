@@ -13,7 +13,7 @@ public class Progression {
     private static final int MIN_STEP = 1;
     private static final int MAX_STEP = 10;
 
-    public static void playProgression(Scanner scanner) {
+    public static void play(Scanner scanner) {
         // Подготавливаем массивы для вопросов и ответов
         String[] questions = new String[Engine.ROUNDS_COUNT];
         String[] answers = new String[Engine.ROUNDS_COUNT];
